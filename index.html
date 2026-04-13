@@ -909,126 +909,134 @@
         .long-g {
     position: absolute;
     bottom: 0;
-    left: 50%; /* Centro de la pantalla */
-    width: 0;   /* No le damos ancho para que sea un eje central */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
     height: 0;
-    transform-origin: bottom center;
 }
-        .long-g--0 {
+
+.long-g--0 {
     bottom: 0;
-    left: -20vmin; /* Posición respecto al centro */
-    transform: rotate(2deg); /* Quitamos scale(0.8) aquí para que no choque con la animación de crecimiento */
+    left: -20vmin;
+    transform: rotate(2deg);
 }
-        .long-g--1 {
+
+.long-g--1 {
     bottom: 0;
     left: -5vmin;
     transform: rotate(-5deg) rotateY(-180deg);
 }
-        .long-g--1 .leaf {
-            -webkit-mask-image: linear-gradient(to top, transparent 40%, #ff219b 80%) !important;
-        }
-        .long-g--1 .leaf--1 {
-            --w: 5vmin;
-            --h: 60vmin;
-            left: -2vmin;
-            transform: rotate(3deg) rotateY(-180deg);
-        }
+
+.long-g--1 .leaf {
+    -webkit-mask-image: linear-gradient(to top, transparent 40%, #ff219b 80%) !important;
+}
+
+.long-g--1 .leaf--1 {
+    --w: 5vmin;
+    --h: 60vmin;
+    left: -2vmin;
+    transform: rotate(3deg) rotateY(-180deg);
+}
+
 .long-g--2 {
     bottom: 0;
-    left: 40%;
+    left: -12vmin;
     transform: scale(0.6) rotateX(60deg);
 }
+
 .long-g--3 {
     bottom: 0;
-    left: 55%;
+    left: 5vmin;
     transform: scale(0.6) rotateX(60deg);
 }
-        .long-g--2 .leaf,
-        .long-g--3 .leaf {
-            -webkit-mask-image: linear-gradient(to top, transparent 50%, #ff219b 80%) !important;
-        }
-        .long-g--2 .leaf--1,
-        .long-g--3 .leaf--1 {
-            left: -1vmin;
-            transform: rotateY(-180deg);
-        }
-        .long-g--3 {
-            left: -17vmin;
-            bottom: 0vmin;
-        }
-        .long-g--3 .leaf {
-            -webkit-mask-image: linear-gradient(to top, transparent 40%, #ff219b 80%) !important;
-        }
-        .long-g--4 {
-            left: 25vmin;
-            bottom: -3vmin;
-            transform-origin: center;
-            transform: scale(0.6) rotateX(60deg);
-        }
-        .long-g--4 .leaf {
-            -webkit-mask-image: linear-gradient(to top, transparent 50%, #ff219b 80%) !important;
-        }
-        .long-g--5 {
-            left: 42vmin;
-            bottom: 0vmin;
-            transform: scale(0.8) rotate(2deg);
-        }
-        .long-g--6 {
-    left: 0; /* Al estar dentro de .long-g que ya tiene su propio posicionamiento, 0 es el centro */
+
+.long-g--2 .leaf,
+.long-g--3 .leaf,
+.long-g--4 .leaf {
+    -webkit-mask-image: linear-gradient(to top, transparent 50%, #ff219b 80%) !important;
+}
+
+.long-g--2 .leaf--1,
+.long-g--3 .leaf--1,
+.long-g--4 .leaf--1 {
+    left: -1vmin;
+    transform: rotateY(-180deg);
+}
+
+.long-g--4 {
+    left: 15vmin;
     bottom: 0;
-    transform: scale(0.8) rotate(2deg); /* Solo escala y rotación */
+    transform: scale(0.6) rotateX(60deg);
+}
+
+.long-g--5 {
+    left: 25vmin;
+    bottom: 0;
+    transform: scale(0.8) rotate(2deg);
+}
+
+.long-g--6 {
+    left: 0;
+    bottom: 0;
+    transform: rotate(2deg);
     z-index: 100;
     filter: blur(0.3vmin);
 }
-        .long-g--7 {
-            left: 35vmin;
-            bottom: 20vmin;
-            z-index: -1;
-            filter: blur(0.3vmin);
-            transform: scale(0.6) rotate(2deg);
-            opacity: 0.7;
-        }
-        .long-g .leaf {
-            --w: 15vmin;
-            --h: 40vmin;
-            --c: #1aaa15;
-            position: absolute;
-            bottom: 0;
-            width: var(--w);
-            height: var(--h);
-            border-top-left-radius: 100%;
-            border-left: 2vmin solid var(--c);
-            -webkit-mask-image: linear-gradient(to top, transparent 20%, var(--dark-color));
-            transform-origin: bottom center;
-        }
-        .long-g .leaf--0 {
-            left: 2vmin;
-            animation: leaf-ans-1 4s linear infinite;
-        }
-        .long-g .leaf--1 {
-            --w: 5vmin;
-            --h: 60vmin;
-            animation: leaf-ans-1 4s linear infinite;
-        }
-        .long-g .leaf--2 {
-            --w: 10vmin;
-            --h: 40vmin;
-            left: -0.5vmin;
-            bottom: 5vmin;
-            transform-origin: bottom left;
-            transform: rotateY(-180deg);
-            animation: leaf-ans-2 3s linear infinite;
-        }
-        .long-g .leaf--3 {
-            --w: 5vmin;
-            --h: 30vmin;
-            left: -1vmin;
-            bottom: 3.2vmin;
-            transform-origin: bottom left;
-            transform: rotate(-10deg) rotateY(-180deg);
-            animation: leaf-ans-3 3s linear infinite;
-        }
 
+.long-g--7 {
+    left: 20vmin;
+    bottom: 0;
+    z-index: -1;
+    filter: blur(0.3vmin);
+    transform: scale(0.6) rotate(2deg);
+    opacity: 0.7;
+}
+
+/* Estilos de las hojas internas y animaciones de balanceo */
+.long-g .leaf {
+    --w: 15vmin;
+    --h: 40vmin;
+    --c: #1aaa15;
+    position: absolute;
+    bottom: 0;
+    width: var(--w);
+    height: var(--h);
+    border-top-left-radius: 100%;
+    border-left: 2vmin solid var(--c);
+    -webkit-mask-image: linear-gradient(to top, transparent 20%, var(--dark-color));
+    transform-origin: bottom center;
+}
+
+.long-g .leaf--0 {
+    left: 2vmin;
+    animation: leaf-ans-1 4s linear infinite;
+}
+
+.long-g .leaf--1 {
+    --w: 5vmin;
+    --h: 60vmin;
+    animation: leaf-ans-1 4s linear infinite;
+}
+
+.long-g .leaf--2 {
+    --w: 10vmin;
+    --h: 40vmin;
+    left: -0.5vmin;
+    bottom: 5vmin;
+    transform-origin: bottom left;
+    transform: rotateY(-180deg);
+    animation: leaf-ans-2 3s linear infinite;
+}
+
+.long-g .leaf--3 {
+    --w: 5vmin;
+    --h: 30vmin;
+    left: -1vmin;
+    bottom: 3.2vmin;
+    transform-origin: bottom left;
+    transform: rotate(-10deg) rotateY(-180deg);
+    animation: leaf-ans-3 3s linear infinite;
+}
         @keyframes leaf-ans-1 {
             0%,
             100% {
@@ -1061,15 +1069,12 @@
         }
 
         @keyframes grow-ans {
-        0% {
-          transform: scale(0);
-          opacity: 0;
-          }
-          100% {
-              /* No pongas transform aquí para que respete el del elemento */
-              opacity: 1;
-            }
-        }
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    /* No pongas 100%, deja que el navegador use el valor del objeto */
+}
         @keyframes light-ans {
             0% {
                 opacity: 0;
