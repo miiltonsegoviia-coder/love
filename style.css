@@ -868,10 +868,12 @@ body {
 }
 
 .long-g {
-  position: absolute;
-  bottom: 25vmin;
-  left: -42vmin;
-  transform-origin: bottom left;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
 }
 .long-g--1 {
   bottom: 0vmin;
