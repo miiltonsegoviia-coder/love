@@ -225,7 +225,7 @@
         }
         .flower--2 {
             left: 50%;
-            transform: rotate(20deg);
+            transform: transform: translateX(-50%) rotate(20deg);
             animation: moving-flower-2 4s linear infinite;
         }
         .flower--2 .flower__line {
@@ -246,7 +246,7 @@
         }
         .flower--3 {
             left: 50%;
-            transform: rotate(-15deg);
+            transform: transform: translateX(-50%) rotate(-15deg);
             animation: moving-flower-3 4s linear infinite;
         }
         .flower--3 .flower__line {
@@ -907,10 +907,12 @@
         }
 
         .long-g {
-            position: absolute;
-            bottom: 0vmin;
-            left: -42vmin;
-            transform-origin: bottom left;
+        position: absolute;
+        bottom: 0; /* Ya lo habíamos bajado */
+        left: 0;   /* Cambiado de -42vmin a 0 */
+        transform-origin: bottom center; /* Cambiado a center */
+        display: flex;
+        justify-content: center;
         }
         .long-g--0 {
             bottom: 22vmin;
@@ -968,11 +970,11 @@
             transform: scale(0.8) rotate(2deg);
         }
         .long-g--6 {
-            left: 0vmin;
-            bottom: -20vmin;
-            z-index: 100;
-            filter: blur(0.3vmin);
-            transform: scale(0.8) rotate(2deg);
+        left: 50%; /* Centrar */
+        bottom: 0;
+        transform: translateX(-50%) scale(0.8) rotate(2deg); /* Usamos translateX para fijar el centro */
+        z-index: 100;
+        filter: blur(0.3vmin);
         }
         .long-g--7 {
             left: 35vmin;
@@ -1055,9 +1057,13 @@
         }
 
         @keyframes grow-ans {
-            0% {
-                transform: scale(0);
-                opacity: 0;
+        0% {
+          transform: scale(0);
+          opacity: 0;
+          }
+          100% {
+              /* No pongas transform aquí para que respete el del elemento */
+              opacity: 1;
             }
         }
         @keyframes light-ans {
