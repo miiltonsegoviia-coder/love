@@ -128,7 +128,7 @@
         /* Star Wars Text */
         .star-wars-intro {
             position: fixed;
-            top: 10%;
+            top: 5%;
             left: 50%;
             transform: translateX(-50%);
             width: 90%;
@@ -180,13 +180,19 @@
         }
 
         .flowers {
-            position: relative;
-            transform: scale(0.9);
+    position: relative;
+    display: flex;
+    align-items: flex-end; /* Alinea las flores al borde inferior */
+    justify-content: center;
+    height: 100vh; /* Ocupa toda la pantalla */
+    width: 100%;
+    transform: scale(0.9);
+    transform-origin: bottom center; /* Escala desde abajo para que no floten */
         }
 
         .flower {
             position: absolute;
-            bottom: 10vmin;
+            bottom: 0vmin;
             transform-origin: bottom center;
             z-index: 10;
             --fl-speed: 0.8s;
@@ -434,7 +440,7 @@
             --c: #ff219b;
             --line-w: 1.5vmin;
             position: absolute;
-            bottom: 12vmin;
+            bottom: 0vmin;
             left: -7vmin;
             display: flex;
             flex-direction: column;
@@ -597,7 +603,7 @@
             --h: 6vmin;
             --c: #ff219b;
             position: absolute;
-            bottom: 10vmin;
+            bottom: 0vmin;
             left: -3vmin;
             transform-origin: bottom center;
             transform: rotate(-30deg) rotateY(-20deg);
@@ -902,7 +908,7 @@
 
         .long-g {
             position: absolute;
-            bottom: 25vmin;
+            bottom: 0vmin;
             left: -42vmin;
             transform-origin: bottom left;
         }
