@@ -908,20 +908,21 @@
 
         .long-g {
     position: absolute;
-    bottom: 0;         /* Ajustado al suelo */
-    left: 50%;         /* Lo centramos */
-    transform: translateX(-50%); /* Lo anclamos al centro */
+    bottom: 0;
+    left: 50%; /* Centro de la pantalla */
+    width: 0;   /* No le damos ancho para que sea un eje central */
+    height: 0;
     transform-origin: bottom center;
 }
         .long-g--0 {
     bottom: 0;
-    left: 45%; /* Un poco a la izquierda del centro */
-    transform: scale(0.8) rotate(2deg);
+    left: -20vmin; /* Posición respecto al centro */
+    transform: rotate(2deg); /* Quitamos scale(0.8) aquí para que no choque con la animación de crecimiento */
 }
         .long-g--1 {
     bottom: 0;
-    left: 50%;
-    transform: translateX(-50%) scale(0.8) rotate(-5deg);
+    left: -5vmin;
+    transform: rotate(-5deg) rotateY(-180deg);
 }
         .long-g--1 .leaf {
             -webkit-mask-image: linear-gradient(to top, transparent 40%, #ff219b 80%) !important;
@@ -973,12 +974,12 @@
             transform: scale(0.8) rotate(2deg);
         }
         .long-g--6 {
-        left: 50%; /* Centrar */
-        bottom: 0;
-        transform: translateX(-50%) scale(0.8) rotate(2deg); /* Usamos translateX para fijar el centro */
-        z-index: 100;
-        filter: blur(0.3vmin);
-        }
+    left: 0; /* Al estar dentro de .long-g que ya tiene su propio posicionamiento, 0 es el centro */
+    bottom: 0;
+    transform: scale(0.8) rotate(2deg); /* Solo escala y rotación */
+    z-index: 100;
+    filter: blur(0.3vmin);
+}
         .long-g--7 {
             left: 35vmin;
             bottom: 20vmin;
