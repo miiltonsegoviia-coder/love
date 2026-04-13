@@ -21,11 +21,14 @@ function handleYesClick() {
     setTimeout(() => {
         mainContainer.classList.add("hidden");
         
-        // 2. Iniciar cambio de fondo y mostrar jardín (pero invisible por CSS)
+        // 2. Iniciar cambio de fondo y posición del body
+        // Esto tarda 2.5s según tu CSS
         document.body.classList.add("night-mode");
         surprise.classList.remove("hidden");
 
-        // 3. Activar las animaciones internas y el desvanecimiento de las flores
+        // 3. Activar las animaciones internas
+        // Aumentamos de 500 a 1200ms para que el body ya esté casi 
+        // abajo del todo antes de que las flores empiecen a brotar.
         setTimeout(() => {
             surprise.classList.remove("not-loaded");
             
@@ -35,7 +38,7 @@ function handleYesClick() {
                 starWarsText.classList.add("opacity-1");
             }, 1500);
 
-        }, 500); // Pequeña espera para que el fondo negro empiece primero
+        }, 1200); // <-- ESTE ES EL CAMBIO CLAVE
 
     }, 1000);
 }
