@@ -191,79 +191,64 @@
         }
 
         .flower {
-            position: absolute;
-            bottom: 0vmin;
-            transform-origin: bottom center;
-            z-index: 10;
-            --fl-speed: 0.8s;
-        }
+    position: absolute;
+    bottom: 0vmin;
+    left: 50%; /* Punto de inicio común */
+    transform-origin: bottom center;
+    z-index: 10;
+    --fl-speed: 0.8s;
+}
 
-        .flower--1 {
-            animation: moving-flower-1 4s linear infinite;
-        }
-        .flower--1 .flower__line {
-            height: 70vmin;
-            animation-delay: 0.3s;
-        }
-        .flower--1 .flower__line__leaf--1 {
-            animation: blooming-leaf-right var(--fl-speed) 1.6s backwards;
-        }
-        .flower--1 .flower__line__leaf--2 {
-            animation: blooming-leaf-right var(--fl-speed) 1.4s backwards;
-        }
-        .flower--1 .flower__line__leaf--3 {
-            animation: blooming-leaf-left var(--fl-speed) 1.2s backwards;
-        }
-        .flower--1 .flower__line__leaf--4 {
-            animation: blooming-leaf-left var(--fl-speed) 1s backwards;
-        }
-        .flower--1 .flower__line__leaf--5 {
-            animation: blooming-leaf-right var(--fl-speed) 1.8s backwards;
-        }
-        .flower--1 .flower__line__leaf--6 {
-            animation: blooming-leaf-left var(--fl-speed) 2s backwards;
-        }
-        .flower--2 {
-            left: 50%;
-            transform: transform: translateX(-50%) rotate(20deg);
-            animation: moving-flower-2 4s linear infinite;
-        }
-        .flower--2 .flower__line {
-            height: 60vmin;
-            animation-delay: 0.6s;
-        }
-        .flower--2 .flower__line__leaf--1 {
-            animation: blooming-leaf-right var(--fl-speed) 1.9s backwards;
-        }
-        .flower--2 .flower__line__leaf--2 {
-            animation: blooming-leaf-right var(--fl-speed) 1.7s backwards;
-        }
-        .flower--2 .flower__line__leaf--3 {
-            animation: blooming-leaf-left var(--fl-speed) 1.5s backwards;
-        }
-        .flower--2 .flower__line__leaf--4 {
-            animation: blooming-leaf-left var(--fl-speed) 1.3s backwards;
-        }
-        .flower--3 {
-            left: 50%;
-            transform: transform: translateX(-50%) rotate(-15deg);
-            animation: moving-flower-3 4s linear infinite;
-        }
-        .flower--3 .flower__line {
-            animation-delay: 0.9s;
-        }
-        .flower--3 .flower__line__leaf--1 {
-            animation: blooming-leaf-right var(--fl-speed) 2.5s backwards;
-        }
-        .flower--3 .flower__line__leaf--2 {
-            animation: blooming-leaf-right var(--fl-speed) 2.3s backwards;
-        }
-        .flower--3 .flower__line__leaf--3 {
-            animation: blooming-leaf-left var(--fl-speed) 2.1s backwards;
-        }
-        .flower--3 .flower__line__leaf--4 {
-            animation: blooming-leaf-left var(--fl-speed) 1.9s backwards;
-        }
+/* Flor 1: Recta en el centro */
+.flower--1 {
+    transform: translateX(-50%); 
+    animation: moving-flower-1 4s linear infinite;
+}
+
+/* Flor 2: Inclinada a la derecha */
+.flower--2 {
+    /* Aquí estaba el error del doble transform */
+    transform: translateX(-50%) rotate(20deg); 
+    animation: moving-flower-2 4s linear infinite;
+}
+
+/* Flor 3: Inclinada a la izquierda */
+.flower--3 {
+    /* Aquí también corregimos el error */
+    transform: translateX(-50%) rotate(-15deg); 
+    animation: moving-flower-3 4s linear infinite;
+}
+
+/* --- TALLOS (EL CUERPO DE LA FLOR) --- */
+.flower__line {
+    height: 55vmin;
+    width: 1.5vmin;
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.2), transparent, rgba(255, 255, 255, 0.2)), 
+                      linear-gradient(to top, transparent 10%, #ff219b, #ff219b);
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
+    
+    /* Importante: 'backwards' para que empiece desde abajo */
+    animation: grow-flower-tree 4s backwards; 
+}
+
+/* Alturas personalizadas para que no sean iguales */
+.flower--1 .flower__line { height: 70vmin; animation-delay: 0.3s; }
+.flower--2 .flower__line { height: 60vmin; animation-delay: 0.6s; }
+.flower--3 .flower__line { animation-delay: 0.9s; }
+
+/* --- HOJAS DE LAS FLORES --- */
+/* Agrupamos para que el código sea más limpio */
+
+.flower--3 .flower__line__leaf--1,
+.flower--3 .flower__line__leaf--2 {
+    animation: blooming-leaf-right var(--fl-speed) 2.3s backwards;
+}
+
+.flower--3 .flower__line__leaf--3,
+.flower--3 .flower__line__leaf--4 {
+    /* Esta es la línea que preguntabas, ahora integrada */
+    animation: blooming-leaf-left var(--fl-speed) 1.9s backwards;
+}
         .flower__leafs {
             position: relative;
             animation: blooming-flower 2s backwards;
@@ -1099,33 +1084,32 @@
                 filter: blur(1vmin);
             }
         }
-        @keyframes moving-flower-1 {
-            0%,
-            100% {
-                transform: rotate(2deg);
-            }
-            50% {
-                transform: rotate(-2deg);
-            }
-        }
-        @keyframes moving-flower-2 {
-            0%,
-            100% {
-                transform: rotate(18deg);
-            }
-            50% {
-                transform: rotate(14deg);
-            }
-        }
-        @keyframes moving-flower-3 {
-            0%,
-            100% {
-                transform: rotate(-18deg);
-            }
-            50% {
-                transform: rotate(-20deg) rotateY(-10deg);
-            }
-        }
+      @keyframes moving-flower-1 {
+    0%, 100% {
+        transform: translateX(-50%) rotate(2deg);
+    }
+    50% {
+        transform: translateX(-50%) rotate(-2deg);
+    }
+}
+
+@keyframes moving-flower-2 {
+    0%, 100% {
+        transform: translateX(-50%) rotate(18deg);
+    }
+    50% {
+        transform: translateX(-50%) rotate(14deg);
+    }
+}
+
+@keyframes moving-flower-3 {
+    0%, 100% {
+        transform: translateX(-50%) rotate(-18deg);
+    }
+    50% {
+        transform: translateX(-50%) rotate(-20deg) rotateY(-10deg);
+    }
+}
         @keyframes blooming-leaf-right {
             0% {
                 transform-origin: left;
