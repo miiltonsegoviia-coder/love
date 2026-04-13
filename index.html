@@ -907,22 +907,22 @@
         }
 
         .long-g {
-        position: absolute;
-        bottom: 0; /* Ya lo habíamos bajado */
-        left: 0;   /* Cambiado de -42vmin a 0 */
-        transform-origin: bottom center; /* Cambiado a center */
-        display: flex;
-        justify-content: center;
-        }
+    position: absolute;
+    bottom: 0;         /* Ajustado al suelo */
+    left: 50%;         /* Lo centramos */
+    transform: translateX(-50%); /* Lo anclamos al centro */
+    transform-origin: bottom center;
+}
         .long-g--0 {
-            bottom: 22vmin;
-            left: -47vmin;
-            transform: scale(0.8) rotate(2deg);
-        }
+    bottom: 0;
+    left: 45%; /* Un poco a la izquierda del centro */
+    transform: scale(0.8) rotate(2deg);
+}
         .long-g--1 {
-            bottom: 0vmin;
-            transform: scale(0.8) rotate(-5deg);
-        }
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scale(0.8) rotate(-5deg);
+}
         .long-g--1 .leaf {
             -webkit-mask-image: linear-gradient(to top, transparent 40%, #ff219b 80%) !important;
         }
@@ -932,13 +932,16 @@
             left: -2vmin;
             transform: rotate(3deg) rotateY(-180deg);
         }
-        .long-g--2,
-        .long-g--3 {
-            bottom: -3vmin;
-            left: -35vmin;
-            transform-origin: center;
-            transform: scale(0.6) rotateX(60deg);
-        }
+.long-g--2 {
+    bottom: 0;
+    left: 40%;
+    transform: scale(0.6) rotateX(60deg);
+}
+.long-g--3 {
+    bottom: 0;
+    left: 55%;
+    transform: scale(0.6) rotateX(60deg);
+}
         .long-g--2 .leaf,
         .long-g--3 .leaf {
             -webkit-mask-image: linear-gradient(to top, transparent 50%, #ff219b 80%) !important;
