@@ -875,108 +875,40 @@ body {
     width: 0;
     height: 0;
 }
-.long-g--1 {
-  bottom: 0vmin;
-  transform: scale(0.8) rotate(-5deg);
-}
-.long-g--1 .leaf {
-  -webkit-mask-image: linear-gradient(to top, transparent 40%, #ff219b 80%) !important;
-}
-.long-g--1 .leaf--1 {
-  --w: 5vmin;
-  --h: 60vmin;
-  left: -2vmin;
-  transform: rotate(3deg) rotateY(-180deg);
-}
-.long-g--2, .long-g--3 {
-  bottom: -3vmin;
-  left: -35vmin;
-  transform-origin: center;
-  transform: scale(0.6) rotateX(60deg);
-}
-.long-g--2 .leaf, .long-g--3 .leaf {
-  -webkit-mask-image: linear-gradient(to top, transparent 50%, #ff219b 80%) !important;
-}
-.long-g--2 .leaf--1, .long-g--3 .leaf--1 {
-  left: -1vmin;
-  transform: rotateY(-180deg);
-}
-.long-g--3 {
-  left: -17vmin;
-  bottom: 0vmin;
-}
-.long-g--3 .leaf {
-  -webkit-mask-image: linear-gradient(to top, transparent 40%, #ff219b 80%) !important;
-}
-.long-g--4 {
-  left: 25vmin;
-  bottom: -3vmin;
-  transform-origin: center;
-  transform: scale(0.6) rotateX(60deg);
-}
-.long-g--4 .leaf {
-  -webkit-mask-image: linear-gradient(to top, transparent 50%, #ff219b 80%) !important;
-}
-.long-g--5 {
-  left: 42vmin;
-  bottom: 0vmin;
-  transform: scale(0.8) rotate(2deg);
-}
-.long-g--6 {
-  left: 0vmin;
-  bottom: -20vmin;
-  z-index: 100;
-  filter: blur(0.3vmin);
-  transform: scale(0.8) rotate(2deg);
-}
-.long-g--7 {
-  left: 35vmin;
-  bottom: 20vmin;
-  z-index: -1;
-  filter: blur(0.3vmin);
-  transform: scale(0.6) rotate(2deg);
-  opacity: 0.7;
-}
+
+/* Posiciones individuales corregidas para evitar saltos */
+.long-g--1 { bottom: 0; left: -5vmin; transform: scale(0.8) rotate(-5deg); }
+.long-g--2 { bottom: 0; left: -15vmin; transform: scale(0.6) rotateX(60deg); }
+.long-g--3 { bottom: 0; left: 5vmin; transform: scale(0.6) rotateX(60deg); }
+.long-g--4 { bottom: 0; left: 15vmin; transform: scale(0.6) rotateX(60deg); }
+.long-g--5 { bottom: 0; left: 25vmin; transform: scale(0.8) rotate(2deg); }
+.long-g--6 { bottom: 0; left: 0; transform: scale(0.8) rotate(2deg); z-index: 100; filter: blur(0.3vmin); }
+.long-g--7 { bottom: 0; left: 20vmin; transform: scale(0.6) rotate(2deg); z-index: -1; filter: blur(0.3vmin); opacity: 0.7; }
+
+/* Estilos de las hojas */
 .long-g .leaf {
-  --w: 15vmin;
-  --h: 40vmin;
-  --c: #1aaa15;
-  position: absolute;
-  bottom: 0;
-  width: var(--w);
-  height: var(--h);
-  border-top-left-radius: 100%;
-  border-left: 2vmin solid var(--c);
-  -webkit-mask-image: linear-gradient(to top, transparent 20%, var(--dark-color));
-  transform-origin: bottom center;
+    --w: 15vmin;
+    --h: 40vmin;
+    --c: #1aaa15;
+    position: absolute;
+    bottom: 0;
+    width: var(--w);
+    height: var(--h);
+    border-top-left-radius: 100%;
+    border-left: 2vmin solid var(--c);
+    -webkit-mask-image: linear-gradient(to top, transparent 20%, var(--dark-color));
+    transform-origin: bottom center;
 }
-.long-g .leaf--0 {
-  left: 2vmin;
-  animation: leaf-ans-1 4s linear infinite;
-}
-.long-g .leaf--1 {
-  --w: 5vmin;
-  --h: 60vmin;
-  animation: leaf-ans-1 4s linear infinite;
-}
-.long-g .leaf--2 {
-  --w: 10vmin;
-  --h: 40vmin;
-  left: -0.5vmin;
-  bottom: 5vmin;
-  transform-origin: bottom left;
-  transform: rotateY(-180deg);
-  animation: leaf-ans-2 3s linear infinite;
-}
-.long-g .leaf--3 {
-  --w: 5vmin;
-  --h: 30vmin;
-  left: -1vmin;
-  bottom: 3.2vmin;
-  transform-origin: bottom left;
-  transform: rotate(-10deg) rotateY(-180deg);
-  animation: leaf-ans-3 3s linear infinite;
-}
+
+.long-g--1 .leaf { -webkit-mask-image: linear-gradient(to top, transparent 40%, #ff219b 80%) !important; }
+.long-g--1 .leaf--1 { --w: 5vmin; --h: 60vmin; left: -2vmin; transform: rotate(3deg) rotateY(-180deg); }
+.long-g--2 .leaf, .long-g--3 .leaf, .long-g--4 .leaf { -webkit-mask-image: linear-gradient(to top, transparent 50%, #ff219b 80%) !important; }
+
+/* Animaciones */
+.long-g .leaf--0 { left: 2vmin; animation: leaf-ans-1 4s linear infinite; }
+.long-g .leaf--1 { --w: 5vmin; --h: 60vmin; animation: leaf-ans-1 4s linear infinite; }
+.long-g .leaf--2 { --w: 10vmin; --h: 40vmin; left: -0.5vmin; bottom: 5vmin; transform-origin: bottom left; transform: rotateY(-180deg); animation: leaf-ans-2 3s linear infinite; }
+.long-g .leaf--3 { --w: 5vmin; --h: 30vmin; left: -1vmin; bottom: 3.2vmin; transform-origin: bottom left; transform: rotate(-10deg) rotateY(-180deg); animation: leaf-ans-3 3s linear infinite; }
 
 @keyframes leaf-ans-1 {
   0%, 100% {
@@ -1110,4 +1042,18 @@ body {
 }
 .not-loaded * {
   animation-play-state: paused !important;
+}
+
+/* --- ESTILOS DE PARTÍCULAS --- */
+.particle {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    animation: fade-particle 1s forwards ease-out;
+}
+
+@keyframes fade-particle {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-50px) scale(0); opacity: 0; }
 }
